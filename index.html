@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Little Angels Academy</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+
+<style>
+body{
+    margin:0;
+    background:#ffffff;
+    font-family:Verdana, sans-serif;
+    text-align:center;
+    color:#1b1b1b;
+}
+.banner{
+    width:100%;
+    max-width:1000px;
+    display:block;
+    margin:auto;
+}
+.section{
+    display:none;
+    max-width:900px;
+    margin:30px auto;
+    padding:20px;
+}
+.btn{
+    background:#0b2a5b;
+    color:#fff;
+    border:none;
+    border-radius:30px;
+    padding:12px 28px;
+    font-size:18px;
+    font-family:Verdana, sans-serif;
+    cursor:pointer;
+    margin:10px;
+}
+.btn:hover{opacity:0.9;}
+input, textarea{
+    width:100%;
+    padding:10px;
+    margin-bottom:10px;
+    border-radius:10px;
+    border:1px solid #ccc;
+    font-family:Verdana, sans-serif;
+}
+ul{
+    text-align:left;
+    max-width:600px;
+    margin:20px auto;
+}
+.word-card{
+    max-width:420px;
+    margin:25px auto;
+    padding:25px;
+    border-radius:25px;
+    background:url("animalborder.png") no-repeat center/cover;
+    box-shadow:0 10px 25px rgba(0,0,0,0.25);
+    font-family:'Comic Neue', cursive;
+    color:#0b2a5b;
+}
+.word-card h3{margin-top:0;font-size:26px;}
+.word-card p{font-size:20px;}
+.slideshow{
+    max-width:700px;
+    margin:auto;
+}
+.slideshow img{
+    width:100%;
+    border-radius:20px;
+}
+.ff-flex{
+    display:flex;
+    gap:20px;
+    align-items:flex-start;
+    flex-wrap:wrap;
+    text-align:left;
+}
+.timeline{
+    max-width:800px;
+    margin:25px auto;
+    text-align:left;
+}
+.timeline-item{
+    display:flex;
+    gap:15px;
+    margin-bottom:18px;
+}
+.timeline-icon{
+    font-size:26px;
+}
+</style>
+</head>
+
+<body>
+
+<img src="logo2.png" class="banner">
+<img src="banner.jpeg" class="banner">
+
+<h1 style="color:#0b2a5b;">Learners Today, Leaders Tomorrow</h1>
+<p style="font-size:20px;font-style:italic;color:#0b2a5b;margin-top:-10px;">
+Nurturing Minds with Excellence and Faith
+</p>
+
+<div class="word-card">
+<h3>Word of the Day</h3>
+<p id="wordText"></p>
+</div>
+
+<div style="margin:30px;">
+<img src="song.jpeg" style="width:80px;cursor:pointer;" onclick="toggleSong()">
+<p style="color:#0b2a5b;font-weight:bold;">Click to play our school song</p>
+<audio id="schoolSong">
+<source src="schoolsong.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<button class="btn" onclick="showSection('mission')">Our Mission</button>
+<button class="btn" onclick="showSection('about')">About Us</button>
+<button class="btn" onclick="showSection('calendar')">Academic Calendar</button>
+<button class="btn" onclick="showSection('gallery')">Gallery</button>
+<button class="btn" onclick="showSection('schoolday')">School Day</button>
+<button class="btn" onclick="showSection('contact')">Contact Us</button>
+<button class="btn" onclick="showSection('felicia')">Felicia Foundation</button>
+
+<!-- MISSION -->
+<div id="mission" class="section">
+<p>
+To serve as a dynamic, inclusive, faith-centered learning community that fosters positive educational experiences and meaningful opportunities through strong partnerships among parents and guardians, teachers, and learners, while equipping every child with strong academic foundations, moral values, and leadership skills.
+</p>
+</div>
+
+<!-- ABOUT US -->
+<div id="about" class="section" style="text-align:left;">
+
+<h2>About Little Angels Academy</h2>
+
+<p>
+Little Angels Academy is a growing educational institution located at Ankaful-Ramblers, Cape Coast, in the Central Region of Ghana. Founded on October 4, 2022, the school began with an in-house teacher training programme, laying a strong foundation for quality education. We officially welcomed our first students on October 7, 2024.
+</p>
+
+<p>
+Currently, Little Angels Academy offers classes from Creche to Basic 1, with plans to expand each academic year. Our curriculum is guided by the Ghana Education Service (GES) framework and thoughtfully enriched with elements of the UK Early Years Foundation Stage (EYFS), ensuring a well-rounded approach to early childhood development.
+</p>
+
+<p><strong>Our Vision</strong><br>
+To create an inclusive, creative, and nurturing learning environment where every child is empowered to thrive.
+</p>
+
+<p><strong>Our Mission</strong><br>
+To serve as a dynamic, inclusive, faith-centered learning community that fosters positive educational experiences and meaningful opportunities through strong partnerships among parents and guardians, teachers, and learners, while equipping every child with strong academic foundations, moral values, and leadership skills.
+</p>
+
+<img src="proprietor.jpeg" style="width:200px;border-radius:20px;margin-top:20px;">
+
+</div>
+
+<!-- CALENDAR -->
+<div id="calendar" class="section">
+<button class="btn" onclick="calendarFrame.style.display='block'">
+2025–2026 Academic Calendar
+</button>
+<div id="calendarFrame" style="display:none;margin-top:20px;">
+<iframe src="calendar.pdf" width="100%" height="600"></iframe>
+<br><br>
+<button class="btn" onclick="calendarFrame.style.display='none'">Close</button>
+</div>
+</div>
+
+<!-- GALLERY -->
+<div id="gallery" class="section">
+<div class="slideshow">
+<img id="slide" src="gallery1.jpeg">
+</div>
+<br>
+<button class="btn" onclick="prevSlide()">Previous</button>
+<button class="btn" onclick="nextSlide()">Next</button>
+</div>
+
+<!-- SCHOOL DAY -->
+<div id="schoolday" class="section">
+
+<p>
+The School Day at Little Angels Academy is thoughtfully structured to balance academic learning, personal development, and fun-filled activities.
+</p>
+
+<div class="timeline">
+
+<div class="timeline-item">
+<span class="timeline-icon">🍽️</span>
+<div><strong>Breakfast Club</strong><br>Breakfast support for early arrivals.</div>
+</div>
+
+<div class="timeline-item">
+<span class="timeline-icon">☀️</span>
+<div><strong>Sunshine Club</strong><br>Phonics, numeracy, reading, hygiene, and manners.</div>
+</div>
+
+<div class="timeline-item">
+<span class="timeline-icon">🎶</span>
+<div><strong>Morning Assembly</strong><br>Anthem, pledge, songs, and rhymes.</div>
+</div>
+
+<div class="timeline-item">
+<span class="timeline-icon">🍎</span>
+<div><strong>Morning Snack</strong><br>Healthy snacks and hydration.</div>
+</div>
+
+<div class="timeline-item">
+<span class="timeline-icon">🍛</span>
+<div><strong>Lunch Time</strong><br>Freshly prepared meals with allergy care.</div>
+</div>
+
+<div class="timeline-item">
+<span class="timeline-icon">🛝</span>
+<div><strong>Free Play</strong><br>Safe indoor and outdoor play.</div>
+</div>
+
+<div class="timeline-item">
+<span class="timeline-icon">📚</span>
+<div><strong>After School Club</strong><br>Homework support and activities.</div>
+</div>
+
+<div class="timeline-item">
+<span class="timeline-icon">🚌</span>
+<div><strong>School Excursions</strong><br>Termly educational trips.</div>
+</div>
+
+</div>
+
+</div>
+
+<!-- CONTACT -->
+<div id="contact" class="section">
+
+<a href="mailto:laacademyghana@gmail.com">
+<img src="email.png" style="width:90px;">
+</a>
+
+<div style="margin-top:15px;">
+<a href="https://wa.me/233532023756">
+<img src="whatsapp.png" style="width:50px;">
+</a>
+<br>
+<span>053 202 3756</span>
+</div>
+
+<div style="margin-top:15px;">
+<a href="https://www.ghanapostgps.com/map/">
+<img src="location.png" style="width:50px;">
+</a>
+<p>Ankaful Ramblers, Cape Coast Ghana<br>GPS: CC-206-1358</p>
+</div>
+
+</div>
+
+<!-- FELICIA FOUNDATION -->
+<div id="felicia" class="section">
+
+<img src="ffbanner.jpeg" class="banner">
+<img src="ffmotto.jpeg" class="banner">
+
+<div class="ff-flex">
+<div style="flex:1;">
+<p>
+The Felicia Foundation was established in loving memory of <strong>Mrs. Felicia Blankson</strong>,
+a devoted mother, educator, and caregiver whose passion for children and education continues to inspire generations.
+</p>
+
+<p>
+The Foundation supports Little Angels Academy by strengthening educational opportunities
+and improving learning environments in the Central Region of Ghana.
+</p>
+
+<ul>
+<li>Teacher training and professional development</li>
+<li>Teaching and learning materials</li>
+<li>Free healthy school feeding programme</li>
+<li>Scholarships for children in need</li>
+<li>Provision of a 15-seater school bus</li>
+<li>Permanent school facility in Cape Coast</li>
+</ul>
+</div>
+
+<img src="felicia.jpeg" style="width:220px;border-radius:20px;">
+</div>
+
+</div>
+
+<p>Ankaful, Ramblers, Cape Coast, Ghana</p>
+
+<a href="https://www.facebook.com/profile.php?id=61586580188662">
+<img src="facebook.png" width="36">
+</a>
+<a href="https://www.youtube.com/channel/UCuCftRYC6u3OwP2uH9xnE8w">
+<img src="youtube.png" width="36">
+</a>
+
+<script>
+function showSection(id){
+ document.querySelectorAll('.section').forEach(s=>s.style.display='none');
+ document.getElementById(id).style.display='block';
+}
+const words=[
+"Be kind, for God loves a cheerful heart.",
+"You are wonderfully made by God.",
+"Do everything with love.",
+"With God, all things are possible.",
+"Let your light shine."
+];
+wordText.innerText=words[new Date().getDate()%words.length];
+
+function toggleSong(){
+ const s=document.getElementById("schoolSong");
+ s.paused?s.play():s.pause();
+}
+
+const imgs=["gallery1.jpeg","gallery2.jpeg","gallery3.jpeg","gallery4.jpeg","gallery5.jpeg","gallery6.jpeg","gallery7.jpeg"];
+let idx=0;
+function nextSlide(){idx=(idx+1)%imgs.length;slide.src=imgs[idx];}
+function prevSlide(){idx=(idx-1+imgs.length)%imgs.length;slide.src=imgs[idx];}
+</script>
+
+</body>
+</html>
